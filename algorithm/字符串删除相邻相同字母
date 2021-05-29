@@ -1,0 +1,11 @@
+function delSrt(str){
+	let res = [], nowStr;
+	for(let i = 0; i < str.length; i ++){
+		if (str.charAt(i) != nowStr) {
+			res.push(str.charAt(i));
+			nowStr = str.charAt(i);
+		}
+	}
+	return res.join("");
+}
+console.log(delSrt("aabcc11"))
