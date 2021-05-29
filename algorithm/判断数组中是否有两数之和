@@ -1,0 +1,21 @@
+在一个未排序的数组中找出是否有任意两数之和等于给定的数。
+
+给出一个数组[6,4,3,2,1,7]和一个数9，判断数组里是否有任意两数之和为9。
+
+function sumFind(arr,num){
+    if(!arr||arr.length<2){
+        return 
+    }
+    let exits=[]
+    for (let i = 0; i < arr.length; i++) {
+        let sub=num-arr[i]
+        if(exits[sub]){
+            return true
+        }else{
+            exits[arr[i]]=true
+        }
+        
+    }
+    return false
+}
+console.log(sumFind([6,4,3,2,1,7], 9));  // true
