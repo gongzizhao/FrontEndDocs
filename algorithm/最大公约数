@@ -1,0 +1,24 @@
+除数 在a和b的范围内，如果同时a和b处以除数的余等于0，就将此时的除数赋值给res；除数自增，不断循环上面的计算，更新ret
+function greatestCommonDivisor(a, b) {
+    let divisor = 2,
+        ret = 1
+    if (a < 2 || b < 2) return 1
+    while (a >= divisor && b >= divisor) {
+        if (a % divisor === 0 && b % divisor === 0) {
+            ret = divisor
+        }
+        divisor++
+    }
+    return ret
+}
+
+递归
+function greatestCommonDivisor2(a, b) {
+    if (b === 0) {
+        return a;
+    } else {
+        return greatestCommonDivisor2(b, a % b)
+    }
+}
+console.log(greatestCommonDivisor(8, 4))
+console.log(greatestCommonDivisor2(8, 4))
