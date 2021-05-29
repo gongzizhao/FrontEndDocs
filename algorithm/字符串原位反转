@@ -1,0 +1,8 @@
+将“I am the good boy”反转变为 “I ma eht doog yob”。
+
+
+function reverseInPlace(str){
+    return str.split(" ").reverse().join(" ").split("").reverse().join("")
+}
+
+console.log(reverseInPlace("I am the good boy"))
