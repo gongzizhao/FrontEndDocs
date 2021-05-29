@@ -7,37 +7,39 @@
 位置 i，j超出边界 或 该位置的值 不等于1，返回；
 不是上面的情况，则：将该位置的值改为 2 ，再重复步骤2。
 
-function islandCount(arr){
-    if(!arr||arr.length===0){
+function islandCount(arr) {
+    if (!arr || arr.length === 0) {
         return
     }
-    let N=arr.length,M=arr[0].length,res=0
-    for(let i=0;i<N;i++){
-        for(let j=0;j<M;j++){
-            if(arr[i][j]===1){
+    let N = arr.length,
+        M = arr[0].length,
+        res = 0
+    for (let i = 0; i < N; i++) {
+        for (let j = 0; j < M; j++) {
+            if (arr[i][j] === 1) {
                 ++res
-                infect(arr,i,j,N,M)
+                infect(arr, i, j, N, M)
             }
         }
     }
     return res
 }
 
-function infect(arr,i,j,N,M){
-    if(i<0||j<0||i>=N||j>=M||arr[i][j]!==1){
+function infect(arr, i, j, N, M) {
+    if (i < 0 || j < 0 || i >= N || j >= M || arr[i][j] !== 1) {
         return
     }
-    arr[i][j]=2
-    infect(arr,i,j-1,N,M)
-    infect(arr,i,j+1,N,M)
-    infect(arr,i-1,j,N,M)
-    infect(arr,i+1,j,N,M)
+    arr[i][j] = 2
+    infect(arr, i, j - 1, N, M)
+    infect(arr, i, j + 1, N, M)
+    infect(arr, i - 1, j, N, M)
+    infect(arr, i + 1, j, N, M)
 }
 
 let arrIsland = [
-	[0,0,1,0,1,0],
-	[1,1,1,0,1,0],
-	[1,0,0,1,0,0],
-	[0,0,0,0,0,1]
+    [0, 0, 1, 0, 1, 0],
+    [1, 1, 1, 0, 1, 0],
+    [1, 0, 0, 1, 0, 0],
+    [0, 0, 0, 0, 0, 1]
 ];
-console.log(islandCount(arrIsland));  // 4
+console.log(islandCount(arrIsland)); // 4
