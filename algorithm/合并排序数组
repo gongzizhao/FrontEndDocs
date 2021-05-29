@@ -1,0 +1,21 @@
+如果 b数组已经遍历完，a数组还有值 或 a[i] 的值 小于等于 b[i] 的值，则将 a[i] 添加进数组res，并 i++；
+如果不是上面的情况，则将 b[i] 添加进数组res，并 i++；
+
+function mergeSortedArr(a,b){
+    if(!a||!b){
+        return
+    }
+    let a1=a[0],b1=b[0],i=1,j=1,res=[]
+    while(a1||b1){
+        if((a1&&!b1)||a1<b1){
+            res.push(a1)
+            a1=a[i++]
+        }else{
+            res.push(b1)
+            b1=b[i++]
+        }
+    }
+    return res
+}
+
+console.log(mergeSortedArr([3],[1,2,3,4]))
