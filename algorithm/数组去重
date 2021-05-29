@@ -1,0 +1,21 @@
+对原数组进行遍历
+获取arr[i]的值 j；
+对应到辅助数组 exits 的位置 j 的值，如果没有，则证明arr[i] 的值没有重复，此时将 值j 存入res数组，并将辅助数组 j 位置的值置为 true。
+最后返回res数组
+
+function removeDuplicate(arr){
+    if(arr===null||arr.length<2){
+        return arr
+    }
+    let res=[],exits=[]
+    for (let i = 0; i < arr.length; i++) {
+        let j = arr[i];
+        if(!exits[j]){
+            res.push(arr[i])
+            exits[j]=true
+        }
+        
+    }
+    return res
+}
+console.log(removeDuplicate([1,2,2,2,3,4,1,2,5]))
