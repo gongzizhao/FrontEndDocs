@@ -1,0 +1,21 @@
+把A杆上的金盘全部移到C杆上，并仍保持原有顺序叠好。操作规则：每次只能移动一个盘子，并且在移动过程中三根杆上都始终保持大盘在下，小盘在上，操作过程中盘子可以置于A、B、C任一杆上。
+
+思路：
+
+递归解决：把问题转化为规模缩小了的同类问题的子问题；
+明确递归结束的条件(base case)：n == 1
+其他过程：from：来源地；to：目的地；help：辅助。
+
+function hanoiProcess(n, from, to, help) {
+    if (n < 1) {
+        return
+    }
+    if (n === 1) {
+        console.log("move 1 from " + from + " to " + to)
+    } else {
+        hanoiProcess(n - 1, from, help, to)
+        console.log("move " + n + " from " + from + " to " + to)
+        hanoiProcess(n - 1, help, to, from)
+    }
+}
+hanoiProcess(3, "left", "right", "middle")
