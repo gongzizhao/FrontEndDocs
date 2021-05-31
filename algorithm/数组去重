@@ -19,3 +19,21 @@ function removeDuplicate(arr){
     return res
 }
 console.log(removeDuplicate([1,2,2,2,3,4,1,2,5]))
+
+
+function unique(arr){
+    return Array.from(new Set(arr))
+}
+
+function unique(arr){
+    for (let i = 0; i < array.length; i++) {
+        for (let j = i+1; j < array.length; j++) {
+            if(arr[i]===arr[j]){
+                arr.splice(j,1)
+                j--
+            }else break
+            
+        }        
+    }
+    return arr
+}
